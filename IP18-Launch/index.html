@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Walli Cases — iPhone 18 Launch Strategy</title>
+<link rel="icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#0a0a0a;--red:#cc1100;--red-dark:#8a0b00;--white:#ffffff;--grey:#8a8a8a;--light-grey:#e5e5e5;--charcoal:#1a1a1a;--off-white:#f4f4f2;--green:#1a7a3a;--amber:#b8790a;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--black);overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--black);border-bottom:2px solid var(--red);height:60px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:.08em;white-space:nowrap;}
+  .nav-brand span{color:var(--red);}
+  .nav-links{display:flex;align-items:center;}
+  .nav-links a{padding:0 .85rem;line-height:60px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .2s;white-space:nowrap;}
+  .nav-links a:hover{color:var(--red);}
+  .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;width:36px;height:36px;}
+  .hamburger span{display:block;width:22px;height:2px;background:#fff;transition:all .3s;}
+
+  /* MOBILE NAV */
+  .nav-mobile{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:var(--black);border-bottom:2px solid var(--red);max-height:calc(100vh - 60px);overflow-y:auto;}
+  .nav-mobile.open{display:block;}
+  .nav-mobile a{display:block;padding:.8rem 1.5rem;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;color:var(--grey);text-decoration:none;text-transform:uppercase;border-bottom:1px solid #1a1a1a;transition:color .2s;}
+  .nav-mobile a:hover{color:var(--red);}
+
+  /* PROGRESS BAR */
+  #progress{position:fixed;top:60px;left:0;right:0;z-index:99;height:3px;background:var(--red);transform-origin:left;transform:scaleX(0);transition:transform .1s linear;}
+
+  /* COVER */
+  #cover{min-height:100vh;background:var(--black);display:grid;place-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
+  #cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(204,17,0,0.08) 0%,transparent 60%);pointer-events:none;}
+  .cover-inner{max-width:1200px;width:100%;}
+  .cover-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:.9;text-transform:uppercase;}
+  .cover-title .line-white{font-size:clamp(3rem,11vw,11rem);color:var(--white);display:block;}
+  .cover-title .line-red{font-size:clamp(1.8rem,5.5vw,5rem);color:var(--red);display:block;margin-top:.35rem;}
+  .cover-rule{width:100%;height:2px;background:var(--red);margin:2rem 0;transform:scaleX(0);transform-origin:left;animation:ruleIn .8s .6s cubic-bezier(.16,1,.3,1) forwards;}
+  @keyframes ruleIn{to{transform:scaleX(1);}}
+  .cover-tagline{font-size:1rem;color:var(--grey);font-style:italic;margin-bottom:3rem;}
+  .cover-byline{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;color:#444;text-transform:uppercase;}
+  .fade-up{opacity:0;transform:translateY(24px);animation:fadeUp .7s cubic-bezier(.16,1,.3,1) forwards;}
+  @keyframes fadeUp{to{opacity:1;transform:none;}}
+  .cover-title{animation-delay:.2s;}.cover-tagline{animation-delay:.7s;}.cover-byline{animation-delay:.9s;}
+
+  /* SECTIONS */
+  .content{max-width:1200px;margin:0 auto;padding:0 3rem;}
+  .section{padding:5rem 0 2rem;opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease;}
+  .section.visible{opacity:1;transform:none;}
+  .section-header{background:var(--black);padding:1rem 1.5rem;display:flex;align-items:baseline;gap:.75rem;margin-bottom:2rem;}
+  .section-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;letter-spacing:.05em;color:var(--white);text-transform:uppercase;}
+  .sub-heading{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--black);border-left:4px solid var(--red);padding-left:.75rem;margin:2rem 0 .85rem;}
+  .red-label{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.15em;color:var(--red);text-transform:uppercase;margin:1.5rem 0 .5rem;}
+  p{font-size:1.05rem;line-height:1.7;color:#222;margin-bottom:.85rem;}
+  .callout{background:var(--charcoal);border-left:4px solid var(--red);padding:1rem 1.25rem;margin:1.5rem 0;}
+  .callout p{color:var(--white);font-style:italic;margin:0;font-size:1.05rem;line-height:1.7;}
+  .bullet-list{list-style:none;margin:.5rem 0 1rem 0;}
+  .bullet-list li{font-size:1rem;line-height:1.65;color:#222;padding:.25rem 0 .25rem 1.4rem;position:relative;}
+  .bullet-list li::before{content:'–';position:absolute;left:0;color:var(--red);font-weight:700;}
+  .sub-bullet-list{list-style:none;margin:.35rem 0 .35rem 1.5rem;}
+  .sub-bullet-list li{font-size:.95rem;line-height:1.6;color:#444;padding:.2rem 0 .2rem 1.2rem;position:relative;}
+  .sub-bullet-list li::before{content:'›';position:absolute;left:0;color:var(--grey);font-weight:700;}
+
+  /* FLOW DIAGRAM (Strategy overview) */
+  .flow{display:flex;flex-direction:column;align-items:stretch;gap:0;margin:2rem 0;}
+  .flow-tile{background:#fff;border:1px solid var(--light-grey);border-left:4px solid var(--red);padding:1.1rem 1.5rem;text-align:left;width:100%;}
+  .flow-tile-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:1.05rem;color:var(--black);margin-bottom:.4rem;}
+  .flow-tile-body{font-size:.95rem;line-height:1.6;color:#444;}
+  .flow-arrow{color:var(--red);font-size:1.3rem;line-height:1;padding:.35rem 0;font-weight:900;align-self:center;}
+
+  /* INSIGHT TABLE */
+  .insight-table{width:100%;border-collapse:collapse;margin:1.5rem 0;}
+  .insight-table tr{border-bottom:1px solid var(--light-grey);}
+  .insight-table td{padding:.9rem 1rem;font-size:1rem;vertical-align:top;}
+  .insight-table td:first-child{background:var(--charcoal);width:25%;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.12em;color:var(--red);text-transform:uppercase;line-height:1.4;}
+  .insight-table td:last-child{background:var(--white);color:#222;line-height:1.6;}
+
+  /* COMMENTS */
+  .section-comment-btn{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.5rem;background:transparent;border:1.5px solid var(--light-grey);padding:.45rem .9rem;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);transition:all .2s;}
+  .section-comment-btn:hover{border-color:var(--red);color:var(--red);}
+  .section-comment-btn .cb-count{background:var(--red);color:#fff;font-size:.72rem;font-weight:700;padding:.1rem .4rem;min-width:20px;text-align:center;display:none;}
+  .section-comment-btn.has-comments .cb-count{display:inline-block;}
+  .comment-panel{display:none;border:1.5px solid var(--light-grey);background:#fff;margin-top:.75rem;}
+  .comment-panel.open{display:block;}
+  .comment-panel-inner{padding:1.25rem;}
+  .comment-thread{margin-bottom:1rem;}
+  .comment-item{border-left:3px solid var(--red);padding:.75rem 1rem;margin-bottom:.75rem;background:#fafafa;}
+  .comment-item-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.25rem;margin-bottom:.35rem;}
+  .comment-item-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--black);}
+  .comment-item-time{font-size:.78rem;color:var(--grey);}
+  .comment-item-text{font-size:.95rem;line-height:1.6;color:#333;}
+  .no-comments{font-size:.9rem;color:var(--grey);font-style:italic;margin-bottom:1rem;}
+  .comment-form textarea{width:100%;padding:.6rem .75rem;border:1px solid #ddd;font-family:'Barlow',sans-serif;font-size:.95rem;resize:vertical;outline:none;background:#fafafa;display:block;margin-bottom:.5rem;}
+  .comment-form-row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;}
+  .comment-form input[type=text]{flex:1;min-width:140px;padding:.5rem .65rem;border:1px solid #ddd;font-family:'Barlow',sans-serif;font-size:.95rem;outline:none;background:#fafafa;}
+  .comment-post-btn{background:var(--red);color:#fff;border:none;padding:.5rem 1.25rem;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;}
+  .comment-post-btn:hover{background:var(--red-dark);}
+  .comment-post-btn:disabled{opacity:.5;cursor:default;}
+  .comment-status{font-size:.82rem;color:var(--grey);margin-top:.35rem;}
+
+  /* FOOTER */
+  footer{background:var(--black);padding:4rem 3rem;display:flex;justify-content:center;align-items:center;}
+
+  /* TRACKER */
+  .tk-phase{margin-bottom:2.5rem;}
+  .tk-phase-hdr{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+  .tk-phase-rule{flex:1;height:1px;background:var(--light-grey);}
+  .tk-phase-pill{background:var(--black);padding:.55rem 1.25rem;display:flex;align-items:baseline;gap:.5rem;flex-shrink:0;}
+  .tk-phase-num{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:900;color:var(--red);}
+  .tk-phase-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
+      color:#fff;text-transform:uppercase;}
+  .tk-subgroup-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--grey);margin:1.25rem 0 .5rem;padding-top:.75rem;border-top:1px dashed var(--light-grey);}
+  .tk-subgroup-lbl:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+
+  .tk-item-list{display:flex;flex-direction:column;gap:.85rem;}
+  .tk-card{background:#fff;border:1px solid var(--light-grey);border-radius:10px;padding:1.1rem 1.25rem 1.25rem;}
+  .tk-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding-bottom:.9rem;
+      border-bottom:1px solid var(--light-grey);margin-bottom:1rem;}
+  .tk-action{font-size:1.02rem;font-weight:700;line-height:1.4;color:var(--black);flex:1;min-width:0;}
+  .tk-card-controls{display:flex;align-items:center;gap:.5rem;flex-shrink:0;}
+  .tk-icon-btn{position:relative;background:#fff;border:1px solid var(--light-grey);border-radius:6px;width:34px;height:34px;
+      cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--grey);flex-shrink:0;transition:all .15s;}
+  .tk-icon-btn:hover{border-color:var(--red);color:var(--red);}
+  .tk-icon-btn.has-comments{color:var(--black);}
+  .tk-comment-btn{position:relative;background:#fff;border:1px solid var(--light-grey);border-radius:6px;height:34px;
+      padding:0 .65rem;cursor:pointer;display:inline-flex;align-items:center;gap:.35rem;color:var(--grey);flex-shrink:0;
+      transition:all .15s;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;
+      letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+  .tk-comment-btn:hover{border-color:var(--red);color:var(--red);}
+  .tk-comment-btn.has-comments{color:var(--black);border-color:#d5d5d5;}
+  .tk-badge{position:absolute;top:-7px;right:-7px;background:var(--red);color:#fff;font-size:.62rem;font-weight:700;
+      border-radius:8px;min-width:16px;height:16px;padding:0 3px;display:flex;align-items:center;justify-content:center;line-height:1;}
+
+  .tk-status-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--grey);margin-bottom:.5rem;display:block;}
+  select.tk-status-select{width:100%;display:block;text-align:center;text-align-last:center;-moz-text-align-last:center;
+      padding:.7rem 1rem;border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-weight:800;
+      letter-spacing:.08em;text-transform:uppercase;font-size:.92rem;cursor:pointer;appearance:none;-webkit-appearance:none;}
+  .tk-status-select.status-pending{background:#ececec;color:#6b6b6b;}
+  .tk-status-select.status-in-progress{background:#fff3b0;color:#8a6d00;}
+  .tk-status-select.status-complete{background:#dcf2e3;color:var(--green);}
+
+  .tk-comment-panel{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--light-grey);}
+  .tk-comment-panel.open{display:block;}
+  .tk-comment-thread{margin-bottom:.75rem;display:flex;flex-direction:column;gap:.6rem;}
+  .tk-comment-item{border-left:3px solid var(--red);padding:.6rem .85rem;background:#fafafa;}
+  .tk-comment-item-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.25rem;margin-bottom:.25rem;}
+  .tk-comment-item-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;color:var(--black);}
+  .tk-comment-item-time{font-size:.72rem;color:var(--grey);}
+  .tk-comment-item-text{font-size:.9rem;line-height:1.55;color:#333;}
+  .tk-no-comments{font-size:.85rem;color:var(--grey);font-style:italic;margin-bottom:.75rem;}
+  .tk-comment-form textarea{width:100%;padding:.55rem .7rem;border:1px solid #ddd;font-family:'Barlow',sans-serif;
+      font-size:.9rem;resize:vertical;outline:none;background:#fafafa;display:block;margin-bottom:.5rem;min-height:52px;}
+  .tk-comment-form-row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;}
+  .tk-comment-form input[type=text]{flex:1;min-width:130px;padding:.5rem .6rem;border:1px solid #ddd;
+      font-family:'Barlow',sans-serif;font-size:.9rem;outline:none;background:#fafafa;}
+  .tk-comment-post-btn{background:var(--red);color:#fff;border:none;padding:.5rem 1.1rem;font-family:'Barlow Condensed',sans-serif;
+      font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;}
+  .tk-comment-post-btn:hover{background:var(--red-dark);}
+  .tk-comment-post-btn:disabled{opacity:.5;cursor:default;}
+  .tk-comment-status{font-size:.78rem;color:var(--grey);margin-top:.3rem;}
+
+  /* ---------- DESKTOP TABLE (901px+) ---------- */
+  .tk-table-wrap{display:none;}
+  .tk-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--light-grey);border-radius:10px;overflow:hidden;}
+  .tk-table thead th{background:var(--charcoal);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;
+      letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:.75rem 1rem;font-weight:700;}
+  .tk-table thead th.tk-th-center{text-align:center;}
+  .tk-table tbody tr.tk-row{border-top:1px solid var(--light-grey);}
+  .tk-table tbody tr.tk-row:hover{background:#fafafa;}
+  .tk-table td{padding:.85rem 1rem;font-size:.95rem;color:#222;vertical-align:middle;}
+  .tk-table td.tk-td-action{font-weight:600;line-height:1.4;}
+  .tk-table td.tk-td-status{width:190px;}
+  .tk-table td.tk-td-comments{width:70px;text-align:center;}
+  .tk-table td.tk-td-delete{width:50px;text-align:center;}
+  .tk-table select.tk-status-select{font-size:.8rem;padding:.5rem .5rem;}
+  .tk-comment-row{display:none;}
+  .tk-comment-row.open{display:table-row;}
+  .tk-comment-row td{padding:0;border-top:none;}
+  .tk-comment-row-inner{padding:1.1rem 1.5rem 1.25rem;background:#fafafa;border-top:1px dashed var(--light-grey);}
+
+  .tk-add-form{display:flex;gap:.6rem;margin-top:.75rem;flex-wrap:wrap;}
+  .tk-add-form input{flex:1;min-width:220px;font-family:'Barlow',sans-serif;font-size:.95rem;padding:.55rem .7rem;border:1px solid var(--light-grey);}
+  .tk-add-btn{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+      font-size:.82rem;padding:.55rem 1.1rem;border:none;cursor:pointer;background:var(--black);color:#fff;}
+  .tk-add-btn:hover{background:var(--red);}
+  .tk-add-toggle{margin-top:.9rem;background:none;border:2px dashed var(--light-grey);width:100%;padding:.75rem;
+      font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      font-size:.8rem;color:var(--grey);cursor:pointer;}
+  .tk-add-toggle:hover{border-color:var(--red);color:var(--red);}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
+    .content{padding:0 1.25rem;}
+    nav{padding:0 1.25rem;}
+    footer{padding:3rem 1.25rem;}
+    .cover-title .line-white{font-size:clamp(3rem,18vw,7rem);}
+    .cover-title .line-red{font-size:clamp(1.5rem,7vw,3rem);}
+    .section-title{font-size:1.3rem;}
+    #cover{padding:5rem 1.25rem 3rem;}
+  }
+
+  @media(min-width:901px){
+    .tk-body-mobile{display:none;}
+    .tk-table-wrap{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><span>WALLI</span> · iPHONE 18 CASES</div>
+  <div class="nav-links">
+    <a href="#s01">Strategy</a>
+    <a href="#s02">Retain ASINs</a>
+    <a href="#s05">Listings</a>
+    <a href="#s06">Launch Moment</a>
+    <a href="#s07">Discovery</a>
+    <a href="#s08">Monitor</a>
+    <a href="#s09">Tracker</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()" id="hbg">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="#s01" onclick="toggleMenu()">Strategy</a>
+  <a href="#s02" onclick="toggleMenu()">Retain Existing ASINs</a>
+  <a href="#s03" onclick="toggleMenu()">Prepare Inventory</a>
+  <a href="#s04" onclick="toggleMenu()">Update Packaging</a>
+  <a href="#s05" onclick="toggleMenu()">Update Existing Listings</a>
+  <a href="#s06" onclick="toggleMenu()">Create the Launch Moment</a>
+  <a href="#s07" onclick="toggleMenu()">Drive Discovery</a>
+  <a href="#s08" onclick="toggleMenu()">Monitor &amp; Optimize</a>
+  <a href="#s09" onclick="toggleMenu()">Launch Tracker</a>
+</div>
+<div id="progress"></div>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="cover-inner">
+    <div class="cover-title fade-up">
+      <span class="line-white">Walli Cases</span>
+      <span class="line-red">iPhone 18 Cases Launch Strategy</span>
+    </div>
+    <div class="cover-rule"></div>
+    <p class="cover-byline fade-up">Prepared by BAD Marketing &nbsp;·&nbsp; Amazon Department</p>
+  </div>
+</section>
+
+<!-- S01 — STRATEGY -->
+<div class="section" id="s01">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Strategy</span></div>
+
+    <p>As the existing iPhone 17 cases are confirmed to be compatible with the corresponding iPhone 18 models, Walli can retain the existing products, ASINs, SKUs and UPCs for the iPhone 18 launch.</p>
+    <div class="callout"><p>Recommendation: Keep the existing product listings. Launch the new positioning.</p></div>
+    <p>Rather than creating separate iPhone 18 listings or inventory, Walli can leverage the established ASINs to capture new demand generated by the iPhone 18 launch.</p>
+
+    <div class="flow">
+      <div class="flow-tile">
+        <div class="flow-tile-title">Retain Existing ASINs</div>
+        <div class="flow-tile-body">Keep the existing listings, inventory, reviews, ranking and sales history.</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-tile">
+        <div class="flow-tile-title">Prepare Inventory</div>
+        <div class="flow-tile-body">Ensure sufficient inventory is available ahead of launch to support both existing iPhone 17 demand and new iPhone 18 demand.</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-tile">
+        <div class="flow-tile-title">Update Packaging</div>
+        <div class="flow-tile-body">Add dual-compatibility labeling to existing packaging and incorporate both models into future packaging runs.</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-tile">
+        <div class="flow-tile-title">Update Existing Listings</div>
+        <div class="flow-tile-body">Transition the existing PDPs to iPhone 17 + iPhone 18 compatibility across catalog attributes, SEO, copy and compatibility imagery.</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-tile">
+        <div class="flow-tile-title">Create the iPhone 18 Launch Moment</div>
+        <div class="flow-tile-body">Create a dedicated iPhone 18 shopping path and actively promote "iPhone 18 Cases Are Here" across the Storefront and Brand Story.</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-tile">
+        <div class="flow-tile-title">Drive New Traffic</div>
+        <div class="flow-tile-body">Launch dedicated iPhone 18 PPC, Sponsored Brands Video and Creator Connections campaigns.</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-tile">
+        <div class="flow-tile-title">Monitor &amp; Optimize</div>
+        <div class="flow-tile-body">Track launch performance, inventory, search visibility, advertising, customer feedback and returns following launch.</div>
+      </div>
+    </div>
+
+    <p>This approach allows Walli to create the visibility and momentum of a new iPhone 18 launch while directing that traffic into established ASINs that already have reviews, ranking and sales history.</p>
+
+    <div id="comments-s01"></div>
+  </div>
+</div>
+
+<!-- S02 — RETAIN EXISTING ASINS -->
+<div class="section" id="s02">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Retain Existing ASINs</span></div>
+
+    <p>Continue selling through the existing iPhone 17 ASINs rather than creating separate iPhone 18 listings.</p>
+    <div class="red-label">Retain:</div>
+    <ul class="bullet-list">
+      <li>Existing ASINs</li>
+      <li>Existing SKUs</li>
+      <li>Existing UPCs</li>
+      <li>Existing inventory</li>
+      <li>Reviews and ratings</li>
+      <li>Sales and ranking history</li>
+    </ul>
+    <p>Creating new listings would unnecessarily split traffic and sales between identical products while giving up the history already established on the current ASINs.</p>
+    <p>The existing ASINs should instead be repositioned to clearly communicate compatibility with both the corresponding iPhone 17 and iPhone 18 models.</p>
+
+    <div id="comments-s02"></div>
+  </div>
+</div>
+
+<!-- S03 — PREPARE INVENTORY FOR LAUNCH -->
+<div class="section" id="s03">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Prepare Inventory for Launch</span></div>
+
+    <p>Ensure sufficient inventory is available ahead of the iPhone 18 launch.</p>
+    <p>The existing inventory will now support both ongoing iPhone 17 demand and new iPhone 18 demand, with an expected increase in sales around the new device launch.</p>
+    <p>Inventory levels should be prepared accordingly to minimize stockout risk during the launch period.</p>
+
+    <div id="comments-s03"></div>
+  </div>
+</div>
+
+<!-- S04 — UPDATE PACKAGING -->
+<div class="section" id="s04">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Update Packaging</span></div>
+
+    <p>Continue using the existing packaging and apply a dual-compatibility sticker.</p>
+    <div class="red-label">Recommended format:</div>
+    <div class="callout"><p>Compatible with iPhone 17 Pro &amp; iPhone 18 Pro</p></div>
+    <p>This ensures customers purchasing for iPhone 18 do not receive packaging labeled only for iPhone 17 and assume they received the wrong product.</p>
+    <p>For future production runs, update the packaging permanently to display both compatible models.</p>
+    <p>There is no need to maintain separate iPhone 17 and iPhone 18 packaging.</p>
+
+    <div id="comments-s04"></div>
+  </div>
+</div>
+
+<!-- S05 — UPDATE EXISTING LISTINGS -->
+<div class="section" id="s05">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Update Existing Listings</span></div>
+
+    <p>Transition the existing product pages from iPhone 17-only positioning to iPhone 17 + iPhone 18 compatibility.</p>
+    <p>All listing updates should be coordinated to ensure clear and consistent compatibility messaging across the product pages.</p>
+
+    <div class="sub-heading">Catalog Attributes</div>
+    <p>Update the Compatible Phone Models attribute across all applicable ASINs to include both corresponding generations.</p>
+    <div class="red-label">Example:</div>
+    <table class="insight-table">
+      <tr><td>Current</td><td>iPhone 17 Pro Max</td></tr>
+      <tr><td>Updated</td><td>iPhone 17 Pro Max, iPhone 18 Pro Max</td></tr>
+    </table>
+    <p>Verify that the updated compatibility attributes successfully publish across all applicable listings.</p>
+
+    <div class="sub-heading">SEO &amp; Copy</div>
+    <p>Complete iPhone 18 keyword research and update:</p>
+    <ul class="bullet-list">
+      <li>Titles</li>
+      <li>Bullets / Item Highlights</li>
+      <li>Backend search terms</li>
+    </ul>
+    <p>The goal is to add iPhone 18 relevance without replacing established iPhone 17 relevance.</p>
+    <div class="red-label">Example title direction:</div>
+    <div class="callout"><p>Walli [Case Name] – Compatible with iPhone 17 Pro &amp; iPhone 18 Pro – [Key Feature]</p></div>
+
+    <div class="sub-heading">Compatibility Image</div>
+    <p>Update the existing compatibility image across every applicable listing to clearly communicate compatibility with both corresponding models.</p>
+    <div class="red-label">Example:</div>
+    <div class="callout"><p>Compatible with iPhone 17 Pro + iPhone 18 Pro</p></div>
+    <p>There is no need to introduce an additional iPhone 18-specific listing image. The existing compatibility asset should provide the visual confirmation of device compatibility, while the remaining image stack continues to focus on product benefits and differentiation.</p>
+
+    <div id="comments-s05"></div>
+  </div>
+</div>
+
+<!-- S06 — CREATE THE IPHONE 18 LAUNCH MOMENT -->
+<div class="section" id="s06">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Create the iPhone 18 Launch Moment</span></div>
+
+    <p>Although the underlying products are unchanged, the shopper-facing execution should be treated as a full iPhone 18 launch.</p>
+    <p>The core launch message across Amazon should be:</p>
+    <div class="callout"><p>IPHONE 18 CASES ARE HERE</p></div>
+    <p>Walli should actively announce the new generation and provide iPhone 18 shoppers with a clear, dedicated shopping path.</p>
+
+    <div class="sub-heading">Store Navigation &amp; iPhone 18 Subpage</div>
+    <p>Maintain Walli's existing generation-based Store structure and add a dedicated iPhone 18 subpage.</p>
+    <p>The existing iPhone 17 page and navigation should remain unchanged.</p>
+    <p>The new iPhone 18 page should feature the same compatible ASINs currently available within the corresponding iPhone 17 collection, organized by iPhone 18 model.</p>
+    <p>Keeping the Store pages separate provides a cleaner shopping journey: shoppers can select their device generation and immediately access the relevant case selection, even though the iPhone 17 and iPhone 18 pages ultimately display the same products.</p>
+
+    <div class="sub-heading">Homepage Launch Placement</div>
+    <p>Update the Store homepage with a prominent iPhone 18 launch asset.</p>
+    <div class="red-label">Example direction:</div>
+    <div class="callout"><p>iPhone 18 Cases Are Here — Find your new case.</p></div>
+    <p>Link directly to the new iPhone 18 subpage.</p>
+
+    <div class="sub-heading">Product Selector Quiz</div>
+    <p>Update the existing homepage product selector to incorporate iPhone 18.</p>
+    <p>Shoppers should be able to select their iPhone 18 model and be routed to the corresponding compatible cases.</p>
+    <p>Existing iPhone 17 selections should remain unchanged.</p>
+
+    <div class="sub-heading">Brand Story</div>
+    <p>Introduce an iPhone 18 launch asset within Brand Story to extend the launch message across Walli's broader Amazon catalog.</p>
+    <div class="red-label">Example direction:</div>
+    <div class="callout"><p>iPhone 18 Cases Are Here — Shop the Collection →</p></div>
+    <p>Link directly to the dedicated iPhone 18 Store subpage.</p>
+
+    <div id="comments-s06"></div>
+  </div>
+</div>
+
+<!-- S07 — DRIVE IPHONE 18 DISCOVERY -->
+<div class="section" id="s07">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Drive iPhone 18 Discovery</span></div>
+
+    <p>Support the launch with dedicated advertising and creator activation built specifically around new iPhone 18 demand.</p>
+
+    <div class="sub-heading">PPC Launch</div>
+    <p>Build dedicated iPhone 18 advertising coverage around:</p>
+    <ul class="bullet-list">
+      <li>Core iPhone 18 case terms</li>
+      <li>Model-specific terms</li>
+      <li>Relevant feature/style searches</li>
+      <li>Product targeting</li>
+      <li>Competitor targeting</li>
+    </ul>
+    <p>Maintain existing iPhone 17 campaigns while monitoring how demand shifts between generations.</p>
+    <p>Scale iPhone 18 investment based on actual search volume and performance.</p>
+
+    <div class="sub-heading">Sponsored Brands Video</div>
+    <p>Develop a dedicated iPhone 18 video ad rather than relying only on existing evergreen creative.</p>
+    <div class="red-label">Example direction:</div>
+    <div class="callout"><p>Got a New iPhone 18? Your Case Is Ready.</p></div>
+    <p>Run Sponsored Brands Video against priority iPhone 18 and model-specific searches during the launch period.</p>
+
+    <div class="sub-heading">Creator Connections</div>
+    <p>Launch a dedicated Creator Connections campaign for iPhone 18 cases.</p>
+    <p>Prioritize creators producing content around:</p>
+    <ul class="bullet-list">
+      <li>iPhone 18</li>
+      <li>New-phone setup/accessories</li>
+      <li>Phone case recommendations</li>
+      <li>Fashion/style accessories</li>
+      <li>Everyday phone protection</li>
+    </ul>
+    <div class="red-label">Example angle:</div>
+    <div class="callout"><p>Just upgraded to iPhone 18? Your Walli case is ready.</p></div>
+    <p>Launch early enough to generate creator coverage around the main iPhone 18 purchase window.</p>
+
+    <div id="comments-s07"></div>
+  </div>
+</div>
+
+<!-- S08 — MONITOR & OPTIMIZE -->
+<div class="section" id="s08">
+  <div class="content">
+    <div class="section-header"><span class="section-title">Monitor &amp; Optimize</span></div>
+
+    <p>Closely monitor both launch performance and customer experience following release.</p>
+
+    <div class="sub-heading">Launch Performance</div>
+    <p>Track:</p>
+    <ul class="bullet-list">
+      <li>iPhone 18 search visibility and ranking</li>
+      <li>Sessions</li>
+      <li>Conversion rate</li>
+      <li>PPC performance</li>
+      <li>Sponsored Brands Video performance</li>
+      <li>Creator Connections performance</li>
+      <li>iPhone 18 sales contribution</li>
+      <li>Existing iPhone 17 performance</li>
+      <li>Inventory coverage</li>
+    </ul>
+
+    <div class="sub-heading">Customer Experience</div>
+    <p>Monitor:</p>
+    <ul class="bullet-list">
+      <li>Return rate and reasons</li>
+      <li>Voice of the Customer</li>
+      <li>Reviews</li>
+      <li>Compatibility / fit complaints</li>
+      <li>"Wrong item received" feedback</li>
+    </ul>
+    <p>Strengthen compatibility or packaging messaging if recurring confusion is identified.</p>
+
+    <div id="comments-s08"></div>
+  </div>
+</div>
+
+<!-- S09 — IPHONE 18 LAUNCH TRACKER -->
+<div class="section" id="s09">
+  <div class="content">
+    <div class="section-header"><span class="section-title">iPhone 18 Launch Tracker</span></div>
+
+    <p>Track progress against every action in the launch plan. Update a status as work moves along, or add a new action under any phase.</p>
+
+    <div id="trackerRoot"></div>
+
+    <div id="comments-s09"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="text-align:center;width:100%;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--red);margin-bottom:.6rem;">We Make Good Brands Go Bad</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--grey);">BAD Marketing &nbsp;·&nbsp; Amazon Department</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('navMobile').classList.toggle('open');
+  }
+
+  // Progress bar
+  window.addEventListener('scroll',()=>{
+    const d=document.documentElement;
+    const pct=(d.scrollTop/(d.scrollHeight-d.clientHeight));
+    document.getElementById('progress').style.transform='scaleX('+pct+')';
+  });
+
+  // Section fade-in
+  const sections=document.querySelectorAll('.section');
+  const sectionObs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});
+  },{threshold:0});
+  sections.forEach(s=>sectionObs.observe(s));
+  // Safety net: the fade-in is cosmetic only — never let it permanently hide content.
+  setTimeout(()=>{ sections.forEach(s=>s.classList.add('visible')); },1500);
+
+  /* ============================================================
+     SUPABASE — shared BAD Marketing project
+     ============================================================ */
+  const SUPABASE_URL='https://zbcqdcwibbuyfmytfngn.supabase.co';
+  const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiY3FkY3dpYmJ1eWZteXRmbmduIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyOTgyNTEsImV4cCI6MjA5Nzg3NDI1MX0.gXJna_dG08OVNyQy6VyakhJ7ays93ibLlWCDrS6W1RM';
+  const DOC_PREFIX='walli-iphone18-launch-2026';
+
+  const SECTIONS={
+    's01':'01 · Strategy',
+    's02':'02 · Retain Existing ASINs',
+    's03':'03 · Prepare Inventory for Launch',
+    's04':'04 · Update Packaging',
+    's05':'05 · Update Existing Listings',
+    's06':'06 · Create the iPhone 18 Launch Moment',
+    's07':'07 · Drive iPhone 18 Discovery',
+    's08':'08 · Monitor & Optimize',
+    's09':'09 · iPhone 18 Launch Tracker'
+  };
+
+  async function fetchComments(){
+    try{
+      const ids=Object.keys(SECTIONS).map(s=>`${DOC_PREFIX}-${s}`);
+      const r=await fetch(
+        `${SUPABASE_URL}/rest/v1/comments?section_id=in.(${ids.map(s=>`"${s}"`).join(',')})&order=created_at.asc`,
+        {headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}}
+      );
+      return await r.json();
+    }catch(e){return[];}
+  }
+
+  async function saveComment(sectionId,name,body){
+    const r=await fetch(`${SUPABASE_URL}/rest/v1/comments`,{
+      method:'POST',
+      headers:{
+        'apikey':SUPABASE_KEY,
+        'Authorization':`Bearer ${SUPABASE_KEY}`,
+        'Content-Type':'application/json',
+        'Prefer':'return=representation'
+      },
+      body:JSON.stringify({section_id:`${DOC_PREFIX}-${sectionId}`,name:name||'Anonymous',body})
+    });
+    if(!r.ok) throw new Error('Failed to save');
+    return await fetchComments();
+  }
+
+  function formatDate(iso){
+    const d=new Date(iso);
+    return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})
+      +' · '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  }
+
+  function escHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderSection(id,comments){
+    const container=document.getElementById('comments-'+id);
+    if(!container) return;
+    const fullId=`${DOC_PREFIX}-${id}`;
+    const sectionComments=comments.filter(c=>c.section_id===fullId);
+    const count=sectionComments.length;
+    container.innerHTML=`
+      <button class="section-comment-btn ${count>0?'has-comments':''}" onclick="togglePanel('${id}')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        ${count>0?count+' comment'+(count>1?'s':''):'Add comment'}
+        <span class="cb-count">${count}</span>
+      </button>
+      <div class="comment-panel ${count>0?'open':''}" id="panel-${id}">
+        <div class="comment-panel-inner">
+          <div class="comment-thread" id="thread-${id}">
+            ${count===0?'<p class="no-comments">No comments yet on this section.</p>':
+              sectionComments.map(c=>`
+                <div class="comment-item">
+                  <div class="comment-item-header">
+                    <span class="comment-item-name">${escHtml(c.name||'Anonymous')}</span>
+                    <span class="comment-item-time">${formatDate(c.created_at)}</span>
+                  </div>
+                  <p class="comment-item-text">${escHtml(c.body)}</p>
+                </div>`).join('')}
+          </div>
+          <div class="comment-form">
+            <textarea id="txt-${id}" rows="2" placeholder="Write a comment or question on this section..."></textarea>
+            <div class="comment-form-row">
+              <input type="text" id="name-${id}" placeholder="Your name (optional)">
+              <button class="comment-post-btn" id="btn-${id}" onclick="postComment('${id}')">Post</button>
+            </div>
+            <div class="comment-status" id="status-${id}"></div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function togglePanel(id){
+    const panel=document.getElementById('panel-'+id);
+    panel.classList.toggle('open');
+    if(panel.classList.contains('open')){
+      setTimeout(()=>{const t=document.getElementById('txt-'+id);if(t)t.focus();},50);
+    }
+  }
+
+  async function postComment(id){
+    const txt=document.getElementById('txt-'+id);
+    const nameEl=document.getElementById('name-'+id);
+    const btn=document.getElementById('btn-'+id);
+    const status=document.getElementById('status-'+id);
+    const body=txt.value.trim();
+    if(!body){status.textContent='Please write something first.';status.style.color='#cc1100';return;}
+    btn.disabled=true;status.textContent='Posting...';status.style.color='#8a8a8a';
+    try{
+      const comments=await saveComment(id,nameEl.value.trim(),body);
+      txt.value='';nameEl.value='';
+      status.textContent='Posted ✓';status.style.color='#2a7a2a';
+      setTimeout(()=>{status.textContent='';},3000);
+      Object.keys(SECTIONS).forEach(sid=>renderSection(sid,comments));
+      setTimeout(()=>{const p=document.getElementById('panel-'+id);if(p)p.classList.add('open');},50);
+    }catch(e){
+      status.textContent='Failed to post. Please try again.';status.style.color='#cc1100';
+    }
+    btn.disabled=false;
+  }
+
+  async function initComments(){
+    const comments=await fetchComments();
+    Object.keys(SECTIONS).forEach(id=>renderSection(id,comments));
+    setTimeout(()=>{
+      Object.keys(SECTIONS).forEach(id=>{
+        const panel=document.getElementById('panel-'+id);
+        const hasComments=comments.some(c=>c.section_id===`${DOC_PREFIX}-${id}`);
+        if(panel&&hasComments) panel.classList.add('open');
+      });
+    },200);
+  }
+
+  /* ============================================================
+     TRACKER — event-sourced (append-only) so every team member's
+     edits sync through the same shared Supabase "comments" table,
+     using a distinct key pattern (~) so it never collides with the
+     dash-based section comment keys above.
+     ============================================================ */
+  const TRACKER_LIKE = `${DOC_PREFIX}~*`;
+
+  async function fetchTrackerEvents(){
+    try{
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/comments?section_id=like.${TRACKER_LIKE}&order=created_at.asc`,
+        { headers:{ apikey:SUPABASE_KEY, Authorization:`Bearer ${SUPABASE_KEY}` } });
+      if(!r.ok) throw new Error('fetch failed');
+      return await r.json();
+    }catch(e){ console.error(e); return null; }
+  }
+
+  async function pushTrackerEvent(phaseKey, itemId, author, payload){
+    const section_id = `${DOC_PREFIX}~${phaseKey}~${itemId}`;
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/comments`, {
+      method:'POST',
+      headers:{ apikey:SUPABASE_KEY, Authorization:`Bearer ${SUPABASE_KEY}`,
+                'Content-Type':'application/json', 'Prefer':'return=representation' },
+      body: JSON.stringify({ section_id, name: author || 'Team', body: JSON.stringify(payload) })
+    });
+    if(!r.ok) throw new Error('save failed');
+    return await r.json();
+  }
+
+  function buildPhaseState(events, phaseKey, seedItems){
+    const items = {};
+    seedItems.forEach(s => { items[s.id] = { id:s.id, action:s.action, group:s.group||null, status:s.status||'Pending', deleted:false, comments:[] }; });
+
+    (events||[]).forEach(ev => {
+      const parts = ev.section_id.split('~');
+      if(parts[1] !== phaseKey) return;
+      const itemId = parts[2];
+      let payload; try{ payload = JSON.parse(ev.body); }catch(e){ return; }
+      if(!items[itemId]) items[itemId] = { id:itemId, action:'', group:null, status:'Pending', deleted:false, comments:[] };
+      if(payload.op === 'add'){
+        items[itemId].action = payload.action;
+        items[itemId].group = payload.group || null;
+        items[itemId].status = 'Pending';
+        items[itemId].deleted = false;
+      } else if(payload.op === 'status'){
+        items[itemId].status = payload.status;
+      } else if(payload.op === 'delete'){
+        items[itemId].deleted = true;
+      } else if(payload.op === 'comment'){
+        items[itemId].comments.push({ name: ev.name, text: payload.text, created_at: ev.created_at });
+      }
+    });
+    return Object.values(items).filter(i => !i.deleted);
+  }
+
+  function statusClass(status){
+    return 'status-' + status.toLowerCase().replace(/\s+/g,'-');
+  }
+
+  /* ============================================================
+     PHASE CONFIG — seeded from the Launch Tracker in the strategy
+     document. New items added by the team append as event rows,
+     they don't modify this seed list.
+     ============================================================ */
+  const PHASES = [
+    { key:'ph1', num:'1', label:'Product & Inventory Readiness',
+      seed:[
+        {id:'p1i1', action:'Prepare sufficient inventory to support combined iPhone 17 + expected iPhone 18 demand'},
+        {id:'p1i2', action:'Implement dual iPhone 17 + iPhone 18 compatibility stickers on existing packaging'},
+        {id:'p1i3', action:'Update future packaging to permanently display dual compatibility'},
+      ]},
+    { key:'ph2', num:'2', label:'Listing Updates',
+      seed:[
+        {id:'p2i1', action:'Complete iPhone 18 keyword research and update titles, bullets / Item Highlights and backend search terms across applicable listings'},
+        {id:'p2i2', action:'Update Compatible Phone Models attributes across all applicable listings to reflect corresponding iPhone 17 + iPhone 18 compatibility'},
+        {id:'p2i3', action:'Update existing compatibility images across all applicable listings to reflect corresponding iPhone 17 + iPhone 18 compatibility'},
+        {id:'p2i4', action:'Complete final QA and confirm listing updates are live'},
+      ]},
+    { key:'ph3', num:'3', label:'iPhone 18 Launch Moment',
+      seed:[
+        {id:'p3i1', action:'Create a dedicated iPhone 18 Store subpage using the existing compatible ASINs and add iPhone 18 to Store navigation'},
+        {id:'p3i2', action:'Develop an iPhone 18 homepage launch placement linking to the dedicated iPhone 18 subpage'},
+        {id:'p3i3', action:'Update the homepage product selector to incorporate iPhone 18 models and route shoppers to the corresponding cases'},
+        {id:'p3i4', action:'Develop an iPhone 18 Brand Story launch asset linking to the dedicated iPhone 18 subpage'},
+        {id:'p3i5', action:'Complete final QA of the iPhone 18 Store shopping journey and launch assets'},
+      ]},
+    { key:'ph4', num:'4', label:'Traffic & Discovery',
+      seed:[
+        {id:'p4i1', action:'Complete iPhone 18 advertising research and launch dedicated PPC coverage'},
+        {id:'p4i2', action:'Develop and launch a dedicated iPhone 18 Sponsored Brands Video campaign'},
+        {id:'p4i3', action:'Launch a dedicated iPhone 18 Creator Connections campaign with supporting creator brief'},
+        {id:'p4i4', action:'Set launch budgets and investment levels across advertising initiatives'},
+      ]},
+    { key:'ph5', num:'5', label:'Launch Readiness',
+      seed:[
+        {id:'p5i1', action:'Confirm product, inventory and packaging readiness'},
+        {id:'p5i2', action:'Confirm listing and launch assets are live'},
+        {id:'p5i3', action:'Confirm iPhone 18 PPC, Sponsored Brands Video and Creator Connections campaigns are active'},
+        {id:'p5i4', action:'Complete final cross-channel launch QA'},
+      ]},
+    { key:'ph6', num:'6', label:'Post-Launch Monitoring',
+      seed:[
+        {id:'p6i1', group:'Week 1', action:'Monitor inventory coverage, traffic, conversion and customer feedback'},
+        {id:'p6i2', group:'Week 1', action:'Review PPC, Sponsored Brands Video and Creator Connections performance'},
+        {id:'p6i3', group:'Week 1', action:'Confirm listing and Store updates are live'},
+        {id:'p6i4', group:'Weeks 2–4', action:'Review iPhone 18 organic visibility, search demand and impact on existing iPhone 17 performance'},
+        {id:'p6i5', group:'Weeks 2–4', action:'Optimize SEO and advertising based on launch performance'},
+        {id:'p6i6', group:'Weeks 2–4', action:'Review Creator Connections performance and content'},
+        {id:'p6i7', group:'Weeks 2–4', action:'Address any recurring compatibility, packaging or customer confusion'},
+        {id:'p6i8', group:'30-Day Review', action:'Evaluate overall iPhone 18 launch performance across sales, organic visibility, advertising and Creator Connections'},
+        {id:'p6i9', group:'30-Day Review', action:'Review customer feedback and returns'},
+        {id:'p6i10', group:'30-Day Review', action:'Determine next optimization priorities'},
+      ]},
+  ];
+
+  const STATUS_OPTIONS = ['Pending','In Progress','Complete'];
+  let ALL_TRACKER_EVENTS = [];
+
+  function renderTracker(){
+    const root = document.getElementById('trackerRoot');
+    root.innerHTML = '';
+    let total = 0, complete = 0;
+
+    PHASES.forEach(phase => {
+      const items = buildPhaseState(ALL_TRACKER_EVENTS, phase.key, phase.seed);
+      total += items.length;
+      complete += items.filter(i => i.status === 'Complete').length;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'tk-phase';
+      wrap.innerHTML = `
+        <div class="tk-phase-hdr">
+          <div class="tk-phase-rule"></div>
+          <div class="tk-phase-pill"><span class="tk-phase-num">${phase.num}</span><span class="tk-phase-lbl">${escHtml(phase.label)}</span></div>
+          <div class="tk-phase-rule"></div>
+        </div>
+        <div class="tk-body-mobile" data-phase="${phase.key}"></div>
+        <div class="tk-table-wrap" data-phase="${phase.key}"></div>
+        <button class="tk-add-toggle" data-phase="${phase.key}" data-role="add-toggle">+ Add Action to This Phase</button>
+        <div class="tk-add-form" data-phase="${phase.key}" style="display:none;">
+          <input type="text" placeholder="New action…" data-role="add-input">
+          <button class="tk-add-btn" data-role="add-submit">Add</button>
+        </div>
+      `;
+      root.appendChild(wrap);
+
+      const body = wrap.querySelector('.tk-body-mobile');
+      const hasGroups = items.some(i => i.group);
+      const groupOrder = [];
+      items.forEach(i => { if(i.group && !groupOrder.includes(i.group)) groupOrder.push(i.group); });
+
+      if (hasGroups){
+        groupOrder.forEach(g => {
+          const lbl = document.createElement('div');
+          lbl.className = 'tk-subgroup-lbl';
+          lbl.textContent = g;
+          body.appendChild(lbl);
+          const list = document.createElement('div');
+          list.className = 'tk-item-list';
+          items.filter(i => i.group === g).forEach(i => list.appendChild(renderTrackerCard(phase.key, i)));
+          body.appendChild(list);
+        });
+        const ungrouped = items.filter(i => !i.group);
+        if (ungrouped.length){
+          const list = document.createElement('div');
+          list.className = 'tk-item-list';
+          list.style.marginTop = '.75rem';
+          ungrouped.forEach(i => list.appendChild(renderTrackerCard(phase.key, i)));
+          body.appendChild(list);
+        }
+      } else {
+        const list = document.createElement('div');
+        list.className = 'tk-item-list';
+        items.forEach(i => list.appendChild(renderTrackerCard(phase.key, i)));
+        body.appendChild(list);
+      }
+
+      const tableWrap = wrap.querySelector('.tk-table-wrap');
+      tableWrap.appendChild(renderTrackerTable(phase.key, items, hasGroups ? groupOrder : null));
+
+      wrap.querySelector('[data-role="add-toggle"]').addEventListener('click', () => {
+        const form = wrap.querySelector('.tk-add-form');
+        form.style.display = form.style.display === 'none' ? 'flex' : 'none';
+        if (form.style.display === 'flex') form.querySelector('input').focus();
+      });
+      wrap.querySelector('[data-role="add-submit"]').addEventListener('click', async () => {
+        const input = wrap.querySelector('[data-role="add-input"]');
+        const val = input.value.trim();
+        if (!val) return;
+        const newId = 'new-' + Date.now() + '-' + Math.random().toString(36).slice(2,7);
+        const btn = wrap.querySelector('[data-role="add-submit"]');
+        btn.disabled = true; btn.textContent = 'Adding…';
+        try{
+          await pushTrackerEvent(phase.key, newId, 'Team', { op:'add', action: val, group:null });
+          input.value = '';
+          wrap.querySelector('.tk-add-form').style.display = 'none';
+          await reloadTracker();
+        }catch(e){
+          alert('Could not add action — check your connection and try again.');
+        }
+        btn.disabled = false; btn.textContent = 'Add';
+      });
+    });
+  }
+
+  /* ---------- shared comment panel markup + wiring ---------- */
+  function commentPanelBodyHTML(domId, item){
+    const commentCount = (item.comments || []).length;
+    const thread = commentCount === 0
+      ? '<p class="tk-no-comments">No comments yet on this action.</p>'
+      : item.comments.map(c => `
+          <div class="tk-comment-item">
+            <div class="tk-comment-item-header">
+              <span class="tk-comment-item-name">${escHtml(c.name||'Anonymous')}</span>
+              <span class="tk-comment-item-time">${formatDate(c.created_at)}</span>
+            </div>
+            <p class="tk-comment-item-text">${escHtml(c.text)}</p>
+          </div>`).join('');
+    return `
+      <div class="tk-comment-thread" id="tk-thread-${domId}">${thread}</div>
+      <div class="tk-comment-form">
+        <textarea id="tk-txt-${domId}" rows="2" placeholder="Add a comment on this action..."></textarea>
+        <div class="tk-comment-form-row">
+          <input type="text" id="tk-name-${domId}" placeholder="Your name (optional)">
+          <button class="tk-comment-post-btn" id="tk-btn-${domId}" data-role="comment-post">Post</button>
+        </div>
+        <div class="tk-comment-status" id="tk-status-msg-${domId}"></div>
+      </div>`;
+  }
+
+  function wireCommentForm(container, phaseKey, item, domId, reopenDomId){
+    container.querySelector('[data-role="comment-post"]').addEventListener('click', async () => {
+      const txt = document.getElementById(`tk-txt-${domId}`);
+      const nameEl = document.getElementById(`tk-name-${domId}`);
+      const btn = document.getElementById(`tk-btn-${domId}`);
+      const status = document.getElementById(`tk-status-msg-${domId}`);
+      const body = txt.value.trim();
+      if(!body){ status.textContent = 'Please write something first.'; status.style.color = '#cc1100'; return; }
+      btn.disabled = true; status.textContent = 'Posting...'; status.style.color = '#8a8a8a';
+      try{
+        await pushTrackerEvent(phaseKey, item.id, nameEl.value.trim() || 'Anonymous', { op:'comment', text: body });
+        await reloadTracker(reopenDomId);
+      }catch(e){
+        status.textContent = 'Failed to post. Please try again.'; status.style.color = '#cc1100';
+        btn.disabled = false;
+      }
+    });
+  }
+
+  /* ---------- mobile card ---------- */
+  function renderTrackerCard(phaseKey, item){
+    const domId = `m-${phaseKey}-${item.id}`;
+    const commentCount = (item.comments || []).length;
+    const card = document.createElement('div');
+    card.className = 'tk-card';
+    card.innerHTML = `
+      <div class="tk-card-top">
+        <div class="tk-action">${escHtml(item.action)}</div>
+        <div class="tk-card-controls">
+          <button class="tk-comment-btn ${commentCount>0?'has-comments':''}" data-role="comment-toggle" title="Comments">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Comment
+            ${commentCount>0?`<span class="tk-badge">${commentCount}</span>`:''}
+          </button>
+          <button class="tk-icon-btn" data-role="delete" title="Remove">✕</button>
+        </div>
+      </div>
+      <span class="tk-status-label">Status</span>
+      <select class="tk-status-select ${statusClass(item.status)}" data-role="status"></select>
+      <div class="tk-comment-panel" id="tk-panel-${domId}">${commentPanelBodyHTML(domId, item)}</div>`;
+
+    const select = card.querySelector('[data-role="status"]');
+    select.innerHTML = STATUS_OPTIONS.map(o => `<option value="${o}" ${o===item.status?'selected':''}>${o}</option>`).join('');
+    select.addEventListener('change', async (e) => {
+      const newStatus = e.target.value;
+      select.className = 'tk-status-select ' + statusClass(newStatus);
+      try{
+        await pushTrackerEvent(phaseKey, item.id, 'Team', { op:'status', status:newStatus });
+      }catch(err){ alert('Could not save status — check your connection.'); }
+      await reloadTracker();
+    });
+
+    card.querySelector('[data-role="delete"]').addEventListener('click', async () => {
+      if (!confirm('Remove this action from the tracker? This cannot be undone.')) return;
+      try{
+        await pushTrackerEvent(phaseKey, item.id, 'Team', { op:'delete' });
+        await reloadTracker();
+      }catch(e){ alert('Could not remove action — check your connection.'); }
+    });
+
+    card.querySelector('[data-role="comment-toggle"]').addEventListener('click', () => {
+      const panel = card.querySelector(`#tk-panel-${domId}`);
+      panel.classList.toggle('open');
+      if (panel.classList.contains('open')) {
+        setTimeout(() => { const t = document.getElementById(`tk-txt-${domId}`); if(t) t.focus(); }, 50);
+      }
+    });
+
+    wireCommentForm(card, phaseKey, item, domId, domId);
+    return card;
+  }
+
+  /* ---------- desktop table ---------- */
+  function renderTrackerTable(phaseKey, items, groupOrder){
+    const table = document.createElement('table');
+    table.className = 'tk-table';
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th class="tk-th-center">Status</th>
+          <th class="tk-th-center">Comments</th>
+          <th class="tk-th-center"></th>
+        </tr>
+      </thead>
+      <tbody></tbody>`;
+    const tbody = table.querySelector('tbody');
+
+    function appendRow(item){
+      const domId = `t-${phaseKey}-${item.id}`;
+      const commentCount = (item.comments || []).length;
+
+      const row = document.createElement('tr');
+      row.className = 'tk-row';
+      row.innerHTML = `
+        <td class="tk-td-action">${escHtml(item.action)}</td>
+        <td class="tk-td-status"><select class="tk-status-select ${statusClass(item.status)}" data-role="status"></select></td>
+        <td class="tk-td-comments">
+          <button class="tk-icon-btn ${commentCount>0?'has-comments':''}" data-role="comment-toggle" title="Comments">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            ${commentCount>0?`<span class="tk-badge">${commentCount}</span>`:''}
+          </button>
+        </td>
+        <td class="tk-td-delete"><button class="tk-icon-btn" data-role="delete" title="Remove">✕</button></td>`;
+
+      const commentRow = document.createElement('tr');
+      commentRow.className = 'tk-comment-row';
+      commentRow.id = `tk-panel-${domId}`;
+      commentRow.innerHTML = `<td colspan="4"><div class="tk-comment-row-inner">${commentPanelBodyHTML(domId, item)}</div></td>`;
+
+      const select = row.querySelector('[data-role="status"]');
+      select.innerHTML = STATUS_OPTIONS.map(o => `<option value="${o}" ${o===item.status?'selected':''}>${o}</option>`).join('');
+      select.addEventListener('change', async (e) => {
+        const newStatus = e.target.value;
+        select.className = 'tk-status-select ' + statusClass(newStatus);
+        try{
+          await pushTrackerEvent(phaseKey, item.id, 'Team', { op:'status', status:newStatus });
+        }catch(err){ alert('Could not save status — check your connection.'); }
+        await reloadTracker();
+      });
+
+      row.querySelector('[data-role="delete"]').addEventListener('click', async () => {
+        if (!confirm('Remove this action from the tracker? This cannot be undone.')) return;
+        try{
+          await pushTrackerEvent(phaseKey, item.id, 'Team', { op:'delete' });
+          await reloadTracker();
+        }catch(e){ alert('Could not remove action — check your connection.'); }
+      });
+
+      row.querySelector('[data-role="comment-toggle"]').addEventListener('click', () => {
+        commentRow.classList.toggle('open');
+        if (commentRow.classList.contains('open')) {
+          setTimeout(() => { const t = document.getElementById(`tk-txt-${domId}`); if(t) t.focus(); }, 50);
+        }
+      });
+
+      wireCommentForm(commentRow, phaseKey, item, domId, domId);
+
+      tbody.appendChild(row);
+      tbody.appendChild(commentRow);
+    }
+
+    if (groupOrder && groupOrder.length){
+      groupOrder.forEach(g => {
+        const groupRow = document.createElement('tr');
+        groupRow.innerHTML = `<td colspan="4" style="background:#f4f4f2;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);padding:.5rem 1rem;">${escHtml(g)}</td>`;
+        tbody.appendChild(groupRow);
+        items.filter(i => i.group === g).forEach(appendRow);
+      });
+      items.filter(i => !i.group).forEach(appendRow);
+    } else {
+      items.forEach(appendRow);
+    }
+
+    return table;
+  }
+
+  async function reloadTracker(reopenDomId){
+    const events = await fetchTrackerEvents();
+    if (events !== null) ALL_TRACKER_EVENTS = events;
+    renderTracker();
+    if (reopenDomId){
+      const panel = document.getElementById('tk-panel-' + reopenDomId);
+      if (panel) panel.classList.add('open');
+    }
+  }
+
+  initComments();
+  reloadTracker();
+</script>
+</body>
+</html>
